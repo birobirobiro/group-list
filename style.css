@@ -1,0 +1,229 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --background: #1A2036;
+  --card: #252B42;
+  --title: #B1B9D8;
+  --bg-card-new: #2E3650;
+  --notification: #8E66FF;
+}
+
+body {
+  background-color: var(--background);
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.card-content {
+  margin: 0 auto;
+  background-color: var(--card);
+  width: 975px;
+  height: 662px;
+  border-radius: 25px;
+  color: var(--title);
+  font-family: 'Merriweather', serif;
+}
+
+.card-container {
+  display: flex;
+  padding: 35px 60px 35px 35px;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.title img {
+  width: 32px;
+  height: 32px;
+}
+
+aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 158px 15px;
+  background-color: var(--background);
+  gap: 5px;
+  width: 88px;
+  height: 592px;
+  border-radius: 20px;
+}
+
+aside a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 58px;
+  height: 58px;
+  transition: all 300ms ease-in;
+}
+
+aside img {
+  width: 100%;
+  height: auto;
+  max-width: 32px;
+  display: block;
+}
+
+aside a:hover {
+  background-color: var(--card);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 25px 60px 0 40px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 35px;
+}
+
+.switcher {
+  display: flex;
+  align-items: center;
+}
+
+.switcher button {
+  padding: 10px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.switcher button:first-child {
+  border-radius: 10px 0 0 10px;
+  border: 2px solid var(--background);
+  background-color: var(--background);
+}
+
+.switcher button:last-child {
+  border-radius: 0 10px 10px 0;
+  border: 2px solid var(--background);
+}
+
+.card-new {
+  background-color: var(--bg-card-new);
+  width: 173px;
+  height: 208px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.card-new span {
+  font-size: 14px;
+}
+
+.card-new button {
+  border: none;
+  background-color: var(--background);
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  cursor: pointer;
+}
+
+.card-new span {
+  font-size: 14px;
+  font-weight: 500px;
+}
+
+.group-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: auto;
+  gap: 20px;
+  max-height: 450px;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.cards {
+  background-color: var(--background);
+  width: 173px;
+  height: 208px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: relative;
+}
+
+.cards img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.cards span:nth-child(3) {
+  font-size: 18px;
+}
+
+.cards span:nth-child(4) {
+  font-family: 'IBM Plex Sans', serif;
+}
+
+.notification {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 11px;
+  height: 11px;
+  background-color: var(--notification);
+  border-radius: 50%;
+}
+
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #b1b9d8 #252b42;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #b1b9d8;
+  border-radius: 5px;
+}

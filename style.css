@@ -99,6 +99,10 @@ aside a:hover {
   padding: 25px 60px 0 40px;
 }
 
+.wrapper.active {
+  padding-right: 0;
+}
+
 header {
   display: flex;
   align-items: center;
@@ -113,20 +117,23 @@ header {
 
 .switcher button {
   padding: 10px;
-  background-color: transparent;
   border: none;
   cursor: pointer;
+  background-color: transparent;
+  border: 2px solid var(--background);
+  transition: background-color 300ms ease-in;
+}
+
+.switcher button.active {
+  background-color: var(--background);
 }
 
 .switcher button:first-child {
   border-radius: 10px 0 0 10px;
-  border: 2px solid var(--background);
-  background-color: var(--background);
 }
 
 .switcher button:last-child {
   border-radius: 0 10px 10px 0;
-  border: 2px solid var(--background);
 }
 
 .card-new {
@@ -139,6 +146,9 @@ header {
   align-items: center;
   justify-content: center;
   gap: 14px;
+  opacity: 0;
+  animation: cardAnimation 500ms ease-out forwards;
+  transition: 300ms ease-in-out;
 }
 
 .card-new span {
@@ -152,6 +162,7 @@ header {
   width: 56px;
   height: 56px;
   cursor: pointer;
+  transition: 300ms ease-in-out;
 }
 
 .card-new span {
@@ -159,14 +170,32 @@ header {
   font-weight: 500px;
 }
 
+.card-new:hover {
+  background-color: var(--background);
+}
+
+.card-new:hover button {
+  background-color: var(--bg-card-new);
+}
+
 .group-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: auto;
   gap: 20px;
+  width: 100%;
   max-height: 450px;
   overflow: auto;
   overflow-x: hidden;
+}
+
+.group-list.active {
+  grid-template-columns: 1fr;
+}
+
+.group-list.active>div {
+  width: 100%;
+  animation: cardAnimationColumn 500ms ease-out forwards;
 }
 
 .cards {
@@ -180,6 +209,45 @@ header {
   justify-content: center;
   gap: 5px;
   position: relative;
+  opacity: 0;
+  animation: cardAnimation 500ms ease-out forwards;
+}
+
+.cards img {
+  transition: all 300ms ease-in-out;
+}
+
+.cards:hover>img {
+  scale: 1.1;
+  cursor: pointer;
+}
+
+.card-new {
+  animation-delay: 200ms !important;
+}
+
+.cards:nth-child(2) {
+  animation-delay: 300ms !important;
+}
+
+.cards:nth-child(3) {
+  animation-delay: 400ms !important;
+}
+
+.cards:nth-child(4) {
+  animation-delay: 500ms !important;
+}
+
+.cards:nth-child(5) {
+  animation-delay: 600ms !important;
+}
+
+.cards:nth-child(6) {
+  animation-delay: 700ms !important;
+}
+
+.cards:nth-child(7) {
+  animation-delay: 800ms !important;
 }
 
 .cards img {
@@ -205,6 +273,45 @@ header {
   height: 11px;
   background-color: var(--notification);
   border-radius: 50%;
+  animation: notification 2s infinite;
+}
+
+@keyframes cardAnimation {
+  from {
+    transform: translateX(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes cardAnimationColumn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes notification {
+  0% {
+    box-shadow: 0 0 5px 2px rgba(142, 102, 255, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 3px 9px rgba(142, 102, 255, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 5px 2px rgba(142, 102, 255, 0.5);
+  }
 }
 
 /* ===== Scrollbar CSS ===== */
